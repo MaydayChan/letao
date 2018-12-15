@@ -40,4 +40,13 @@ $(function(){
 
 
 
+    // 模态框功能
+
+    $('.icon_logout').on('click',function(){
+
+        $('.modal').modal('show')
+    })
+
+
+
 })

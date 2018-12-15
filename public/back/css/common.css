@@ -1,5 +1,10 @@
 
 /* 公共样式 */
+
+body {
+    height: 1000px;
+}
+
 ul {
     margin: 0;
     padding: 0;
@@ -11,6 +16,10 @@ a:link,
 a:visited,
 a:active {
     text-decoration: none;
+}
+
+.red {
+    color: #A94442;
 }
 
 
@@ -145,4 +154,13 @@ html,body {
 .lt_main .breadcrumb {
     margin-top: 15px;
     margin-left: 15px;
+}
+
+
+/* 图表 */
+.echarts_left,
+.echarts_right {
+  width: 48%;
+  height: 400px;
+  background-color: skyblue;
 }

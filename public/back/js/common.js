@@ -3,11 +3,19 @@
 // 引入nprogress插件
 // 在ajax发送开始时打开进度条
 // 在ajax结束时关闭进度条
+NProgress.start();
+
+setTimeout(function () {
+    NProgress.done();
+
+},3000);
+
 
 $(document).ajaxStart(function () {
     // 第一个ajax发送时，开启进度条
     NProgress.start();
 })
+
 
 $(document).ajaxStop(function () {
     // 在所有ajax结束时结束进度条
@@ -15,9 +23,9 @@ $(document).ajaxStop(function () {
     setTimeout(function () {
         NProgress.done();
 
-    },500);
+    },3000);
 
-})
+});
 
 
 

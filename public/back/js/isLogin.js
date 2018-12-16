@@ -6,6 +6,7 @@ $.ajax({
     type: 'get',
     dataType: 'json',
     success: function(info){
+       
         
         if(info.success) {    
             // true == 'true' 是错误的 比较过程 先将布尔值true转换成数值 1 == 'true' ——>   'true'转化为数字NaN

@@ -84,5 +84,37 @@ $(function () {
     })
 
 
+    // 退出功能
+    $('.btn-quit').on('click',function(){
+
+        // 发送ajax到后台，
+        $.ajax({
+
+            url: '/employee/employeeLogout',
+            type: 'get',
+            dataType: 'json',
+            success: function(info){
+
+                if(info.success) {
+
+                    alert('退出成功');
+                    location.href = 'login.html'
+
+                }
+
+                if(info.error) {
+                    alert('退出失败')
+                }
+
+
+            }
+
+        })
+
+
+    })
+
+
+
 
 })

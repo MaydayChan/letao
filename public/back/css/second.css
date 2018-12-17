@@ -1,0 +1,13 @@
+
+.lt_content {
+    padding-left: 15px;
+}
+
+.lt_content .btnAdd{
+    margin-bottom: 20px;
+}
+
+.lt_content thead th,
+.lt_content tbody {
+    text-align: center;
+}

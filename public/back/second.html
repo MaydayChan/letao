@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./lib/bootstrap-validator/js/bootstrapValidator.js">
     <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
     <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/second.css">
 </head>
 
 <body>
@@ -68,14 +69,96 @@
             <!-- 路径导航 -->
             <ol class="breadcrumb">
                 <li><a href="#">管理系统</a></li>
-                <li class="active">商品管理</li>
+                <li class="active">分类管理</li>
+                <li class="active">二级分类</li>
             </ol>
 
+            <div class="lt_content">
+
+                <button class="btn btn-default btnAdd">添加分类</button>
+
+                <table class="table table-bordered table-hover">
+
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>一级分类名称</th>
+                            <th>二级分类名称</th>
+                            <th>二级分类LOGO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <!-- template模板占位 -->
+
+                    </tbody>
+
+                </table>
+
+                <div class="pull-right">
+                    <ul id="Spagintor"></ul>
+                </div>
+
+            </div>
         </div>
     </div>
 
-    <!-- 模态框部分 -->
-    <div class="modal fade bs-example-modal-sm" tabindex="-1">
+
+    <!-- 添加模态框部分 -->
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" id="secondModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+
+                        <h4 class="modal-title">添加分类</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- 每一行一个form-group，表单校验插件依赖与form-group -->
+                        <div class="form-group">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                    data-toggle="dropdown">
+                                    <span id="dropdownText">请选择一级分类</span>
+
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+
+                                    <!-- 二级分类 template占位 -->
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="brandName" placeholder="请输入二级分类名称">
+                        </div>
+
+                        <!-- 选择图片部分 -->
+                        <div class="form-group">
+                            <!-- label标签，在label标签上点击文本会触发对应的input表单元素 -->
+                            <label for="fileupload" class="btn btn-default">选择图片</label>
+                            <input class="btn btn-default" type="file" name="pic1" 
+                            data-url="/category/addSecondCategoryPic" id="fileupload" style="display: none">
+                        </div>
+                        <div class="form-group">
+                            <img src="./images/none.png" alt="" width="100px" height="100px" id="pic">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary" id="btnAddImg">添加</button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+    <!-- 退出模态框部分 -->
+    <div class="modal fade bs-example-modal-sm" id="loginOutModal" tabindex="-1">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
@@ -94,12 +177,39 @@
     </div><!-- /.modal -->
 
 
+    <!-- template模板 -->
+    <script type="text/html" id="secondTpl">
+      {{each rows v i}}
+        <tr>
+            <td>{{i + 1 + (page - 1)* size}}</td>
+            <td>{{v.categoryName}}</td>
+            <td>{{v.brandName}}</td>
+            <td><img src="{{v.brandLogo}}" alt="" height="50px"></td>
+        </tr>
+      {{/each}}
+    </script>
+
+
+    <!-- 二级分类模板 -->
+    <script type="text/html" id="brandTpl">
+
+      {{each rows v i}}
+        <li><a href="#">{{v.categoryName}}</a></li>
+      {{/each}}
+    </script>
+
+
     <script src="./lib/jquery/jquery.js"></script>
     <script src="./lib/bootstrap/js/bootstrap.js"></script>
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
     <script src="./js/isLogin.js"></script>
     <script src="./js/common.js"></script>
+    <script src="./js/second.js"></script>
 </body>
 
 </html>

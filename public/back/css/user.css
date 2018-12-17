@@ -1,0 +1,9 @@
+
+
+/* 表格部分 */
+
+.table > thead > tr > th,
+.table > tbody > tr > td {
+    text-align: center;
+    vertical-align: middle;
+}

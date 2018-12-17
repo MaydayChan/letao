@@ -80,7 +80,7 @@ $(function () {
 
     $('.icon_logout').on('click', function () {
 
-        $('.modal').modal('show')
+        $('#loginOutModal').modal('show')
     })
 
 

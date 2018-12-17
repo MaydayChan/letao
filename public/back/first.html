@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="./lib/bootstrap-validator/js/bootstrapValidator.js">
     <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
     <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/first.css">
 </head>
 
 <body>
@@ -68,14 +70,69 @@
             <!-- 路径导航 -->
             <ol class="breadcrumb">
                 <li><a href="#">管理系统</a></li>
-                <li class="active">商品管理</li>
+                <li class="active">分类管理</li>
+                <li class="active">一级分类</li>
             </ol>
+
+
+            <div class="lt_content">
+
+                <button class="btn btn-default btnAdd" id="btnAdd">添加分类</button>
+
+
+
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>一级分类名</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <!-- template模板占位 -->
+
+                    </tbody>
+                </table>
+
+                <div class="pull-right">
+                    <ul class="Fpagintor"></ul>
+                </div>
+
+            </div>
+
 
         </div>
     </div>
 
-    <!-- 模态框部分 -->
-    <div class="modal fade bs-example-modal-sm" tabindex="-1">
+
+
+    <!-- 添加模态框部分 -->
+    <div class="modal fade" id="addModal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <form id="firstForm">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                        <h4 class="modal-title">添加分类</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!-- 每一行一个 form-group, 表单校验插件依赖于这个 form-group 父元素的 -->
+                        <div class="form-group">
+                            <input type="text" name="categoryName" class="form-control" placeholder="请输入一级分类名称">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-primary">添加</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 退出模态框部分 -->
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" id="loginOutModal">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
@@ -94,12 +151,27 @@
     </div><!-- /.modal -->
 
 
+    <!-- template模板 -->
+    <script type="text/html" id="firstTpl">
+        {{each rows v i}}
+           <tr>
+              <td>{{i + 1 + (page-1) * size}}</td>
+              <td>{{v.categoryName}}</td>
+          </tr>
+        {{/each}}
+    </script>
+
+
     <script src="./lib/jquery/jquery.js"></script>
     <script src="./lib/bootstrap/js/bootstrap.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
     <script src="./js/isLogin.js"></script>
     <script src="./js/common.js"></script>
+    <script src="./js/first.js"></script>
 </body>
 
 </html>
